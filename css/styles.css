@@ -51,20 +51,35 @@ footer {
 .tile {
   /* TODO: MODULE_CARDS */
   /* 1. Fill in the required properties. */
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  z-index: 1;
 }
 .tile img {
   /* TODO: MODULE_CARDS */
   /* 1. Fill in the required properties. */
+
+  height: 100%;
+  object-fit: cover;
 }
 .tile img:hover {
   /* TODO: MODULE_CARDS */
   /* 1. Fill in the required properties. */
+
+  transform: scale(1.1);
+  transition: all 0.5s ease-out;
+  filter: brightness(50%);
+  /* object-fit: fill;
+  box-sizing: border-box; */
 }
 
 /* Hint: Notice the position:absolute and z-index properties. */
 /* Think about how those in relation to the existing "tile" classes. */
 .tile-text {
   position: absolute;
+  bottom: 0;
+  width: 100%;
   z-index: 1;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -73,7 +88,12 @@ footer {
 .hero-image {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/assets/hero.jpg");
+    url("../assets/hero.jpg");
+
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  width: 100vw;
 
   /* TODO: MODULE_LAYOUT */
   /* 1. Set a specific height. */
@@ -103,14 +123,33 @@ footer {
 .adventure-card {
   /* TODO: MODULE_ADVENTURES_GRID */
   /* 1. Fill in the required properties. */
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px !important;
+  /* border: 8px solid black; */
 }
-.adventure-card img {
+.card-content > p {
+  /* font-size: smaller; */
+  font-weight: 500;
+}
+.card-text {
+  font-weight: 500;
+}
+.adventure-card img,
+.card-img {
   /* TODO: MODULE_ADVENTURES_GRID */
   /* 1. Fill in the required properties. */
+  border-radius: 0;
+  object-fit: cover;
+  height: 320px;
+  width: auto;
 }
 .adventure-card img:hover {
   /* TODO: MODULE_ADVENTURES_GRID */
   /* 1. Fill in the required properties. */
+
+  filter: brightness(50%);
 }
 
 /* ================================== */
@@ -125,14 +164,30 @@ footer {
 .adventure-card-image {
   /* TODO: MODULE_ADVENTURE_DETAILS */
   /* 1. Fill in the required properties. */
+  width: 100%;
+  height: 100%;
+
+  /* object-fit: fill; */
+}
+.adventure-card-image-side {
+  /* TODO: MODULE_ADVENTURE_DETAILS */
+  /* 1. Fill in the required properties. */
+  width: 100%;
+  height: auto;
 }
 .adventure-card-image:hover {
   /* TODO: MODULE_ADVENTURE_DETAILS */
   /* 1. Fill in the required properties. */
 }
+.detail-head p {
+  color: lightgray;
+}
 .experience-content ul li {
   margin-left: 16px;
   padding: 0;
+}
+.explore:link {
+  color: orange !important;
 }
 
 @media only screen and (min-width: 768px) {
@@ -140,5 +195,21 @@ footer {
   #reservation {
     width: 400px;
     position: fixed;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-content,
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .card-img {
+    /* TODO: MODULE_ADVENTURES_GRID */
+    /* 1. Fill in the required properties. */
+    object-fit: fill;
+    height: 280px;
+    width: auto;
   }
 }
